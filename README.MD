@@ -1,1 +1,1 @@
-Hello World!
+If this text appears, you are dead.
