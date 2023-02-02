@@ -3,7 +3,6 @@ on: push
 
 jobs:
   build:
-    name: Building project
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
