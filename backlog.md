@@ -41,3 +41,35 @@
     - The population of people, people living in cities, and people not living in cities in each continent.
     - The population of people, people living in cities, and people not living in cities in each region.
     - The population of people, people living in cities, and people not living in cities in each country.
+    - The population of the world.
+    - The population of a selected continent.
+    - The population of a selected region.
+    - The population of a selected country.
+    - The population of a selected district.
+    - The population of a selected city.
+    - Total nunber of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.
+    - Total nunber of people and the percentage of the world population speaking English sorted from greatest to smallest.
+    - Total nunber of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.
+    - Total nunber of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.
+    - Total nunber of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.
+    - Country Report: 
+       - Code 
+       - Name 
+       - Continent
+       - Region
+       - Population
+       - Capital
+    - City Report:
+       - Name
+       - Country
+       - District
+       - Population
+    - Capital City Report:
+       - Name
+       - Country
+       - Population
+    - Population Report:
+       - Name of the selected continent/region/country
+       - Total population of the selected continent/region/country
+       - Total population of the selected continent/region/country living in cities (including %)
+       - Total population of the selected continent/region/country NOT living in cities (including %)
