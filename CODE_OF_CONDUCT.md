@@ -2,7 +2,7 @@
 
 ## Our Pledge
 
-We as members, contributors, and leaders pledge to make participation in our
+We as members of this group and contributors pledge to make participation in our
 community a harassment-free experience for everyone, regardless of age, body
 size, visible or invisible disability, ethnicity, sex characteristics, gender
 identity and expression, level of experience, education, socio-economic status,
@@ -14,7 +14,7 @@ We pledge to act and interact in ways that contribute to an open, welcoming and 
 ## Our Standards
 
 Examples of behavior that contributes to a positive environment for our
-community include:
+group include:
 
 * Demonstrating empathy and kindness toward other people
 * Being respectful of differing opinions, viewpoints, and experiences
@@ -23,6 +23,8 @@ community include:
   and learning from the experience
 * Focusing on what is best not just for us as individuals, but for the
   overall community
+* Create a friendly, positive environment. If there is time, activities or going out togheter 
+  can be beneficial for the group dynamics.
 
 Examples of unacceptable behavior include:
 
@@ -37,12 +39,12 @@ Examples of unacceptable behavior include:
 
 ## Enforcement Responsibilities
 
-Community leaders are responsible for clarifying and enforcing our standards of
-acceptable behavior and will take appropriate and fair corrective action in
+We, members of group, are responsible for clarifying and enforcing our standards of
+acceptable behavior among each other and will take appropriate and fair corrective action in
 response to any behavior that they deem inappropriate, threatening, offensive,
 or harmful.
 
-Community leaders have the right and responsibility to remove, edit, or reject
+We, among each other, have the right and responsibility to remove, edit, or reject
 comments, commits, code, wiki edits, issues, and other contributions that are
 not aligned to this Code of Conduct, and will communicate reasons for moderation
 decisions when appropriate.
@@ -61,12 +63,12 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement.
 All complaints will be reviewed and investigated promptly and fairly.
 
-All community leaders are obligated to respect the privacy and security of the
+All members of the group are obligated to respect the privacy and security of the
 reporter of any incident.
 
 ## Enforcement Guidelines
 
-Community leaders will follow these Community Impact Guidelines in determining
+Members of the group will follow these Community Impact Guidelines in determining
 the consequences for any action they deem in violation of this Code of Conduct:
 
 ### 1. Correction
@@ -108,7 +110,7 @@ standards, including sustained inappropriate behavior,  harassment of an
 individual, or aggression toward or disparagement of classes of individuals.
 
 **Consequence**: A permanent ban from any sort of public interaction within
-the community.
+the community. In our case, the expulsion from our group. 
 
 ## Attribution
 
