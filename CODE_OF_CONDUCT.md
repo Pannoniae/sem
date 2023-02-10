@@ -23,7 +23,7 @@ group include:
   and learning from the experience
 * Focusing on what is best not just for us as individuals, but for the
   overall community
-* Create a friendly, positive environment. If there is time, activities or going out togheter 
+* Create a friendly, positive environment. If there is time, activities or going out together 
   can be beneficial for the group dynamics.
 
 Examples of unacceptable behavior include:
