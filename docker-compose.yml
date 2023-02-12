@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+
+  database-service:
+    container_name: my-db
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: world
+
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - ./init:/world.sql
+    build:
+      context: .
+      dockerfile: Dockerfile-MySQL
+
+  app-service:
+    container_name: my-app
+    image: openjdk:latest
+    volumes:
+      - .:/tmp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    working_dir: /tmp
+    command:
+      - chmod +rwx target/sem-jwd-0.1.0.3.jar
+    entrypoint: ["java", "-jar", "target/sem-jwd-0.1.0.3.jar"]
+
+
+
