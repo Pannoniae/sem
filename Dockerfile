@@ -1,4 +1,5 @@
-FROM eclipse-temurin:latest
-COPY ./target/seMethods-0.1.0.2-jar-with-dependencies.jar /tmp
+FROM openjdk:latest
+COPY ./target/sem-jwd-0.1.0.3.jar ./tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.2-jar-with-dependencies.jar"]
+CMD ["chmod", "+rwx", "./sem-jwd-0.1.0.3.jar"]
+CMD ["java", "-jar", "sem-jwd-0.1.0.3.jar"]
