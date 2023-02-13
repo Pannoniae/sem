@@ -14,7 +14,7 @@ jobs:
           distribution: 'temurin'
       - name: Setup network
         run: |
-          docker-compose -f sem/docker-compose.yml up -d
+          docker-compose up -d
       - name: Compile with Maven
         run: mvn clean package
       - name: view logs of my-app
