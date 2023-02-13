@@ -12,11 +12,11 @@ jobs:
         with:
           java-version: '18'
           distribution: 'temurin'
+      - name: Compile with Maven
+        run: mvn clean package
       - name: Setup network
         run: |
           docker-compose up -d
-      - name: Compile with Maven
-        run: mvn clean package
       - name: view logs of my-app
         run: docker logs my-app
       - name: view logs of my-db
