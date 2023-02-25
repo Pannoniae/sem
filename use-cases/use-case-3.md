@@ -1,4 +1,4 @@
-# USE CASE: 3 Produce a City Report on the selected cities.
+# USE CASE: 3 Produce a Capital City Report on the selected cities.
 ## CHARACTERISTIC INFORMATION
 ### Goal in Context
 Among all the cities being evaluated as potential candidates, a special attention is dedicated to capital cities, due to their prominent cultural, political and financial role inside a country.
