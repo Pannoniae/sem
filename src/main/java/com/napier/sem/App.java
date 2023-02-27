@@ -34,7 +34,8 @@ public class App {
 
         System.out.println("Choose the needed information : \n" +
                 "1. All the countries in the world organised by largest population to smallest. \n" +
-                "2. All the countries in a continent organised by largest population to smallest. \n");
+                "2. All the countries in a continent organised by largest population to smallest. \n" +
+                "3. All the countries in a region organised by largest population to smallest. \n");
 
         System.out.println("Required case : ");
 
@@ -77,7 +78,24 @@ public class App {
                     System.out.println("" + ex);
                 }
                 break;
+            case(3):
+                System.out.println("U chose 3 \n");
+                try{
+                    conn = App.getConnection();
+                    prst = conn.prepareStatement("SELECT name, region, population FROM country ORDER BY region, population DESC;");
+                    rs = prst.executeQuery();
 
+                    while(rs.next()) {
+                        String queryResult1 = rs.getString("country.name");
+                        String queryResult2 = rs.getString("country.region");
+                        String queryResult3 = rs.getString("country.population");
+                        System.out.println(queryResult1 + ", " + queryResult2 + " : " + queryResult3);
+                    }
+                }
+                catch(Exception ex){
+                    System.out.println("" + ex);
+                }
+                break;
         }
     }
 }
