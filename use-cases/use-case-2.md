@@ -35,4 +35,4 @@ The Management board requests a set of data of the selected potential candidate 
 None.
 
 ## SCHEDULE
-**DUE DATE**: Release v0.1
+**DUE DATE**: release v0.1
