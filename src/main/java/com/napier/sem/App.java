@@ -6,94 +6,105 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+/**
+ * The main class for The Flying Scot application.
+ */
 public class App {
 
+    /**
+     * The static MySQL connection instance.
+     */
     static Connection conn;
 
-    public static Connection getConnection(){
+    /**
+     * Create a database driver connection to a hardcoded set of credentials.
+     *
+     * @return The newly created connection.
+     */
+    public static Connection getConnection() {
 
         String url = "jdbc:mysql://0.0.0.0:3306/world";
         String user = "root";
         String pass = "123";
 
-        try{
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(url, user, pass);
-        }catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("" + ex);
         }
         return conn;
     }
 
+    /**
+     * The main entry point to The Flying Scot application.
+     * @param args The arguments passed to the program invocation.
+     */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         Connection conn;
         PreparedStatement prst;
         ResultSet rs;
 
-        System.out.println("Choose the needed information : \n" +
-                "1. All the countries in the world organised by largest population to smallest. \n" +
-                "2. All the countries in a continent organised by largest population to smallest. \n" +
-                "3. All the countries in a region organised by largest population to smallest. \n");
+        /**
+         * 1. All the countries in the world organised by largest population to smallest.
+         * 2. All the countries in a continent organised by largest population to smallest.
+         * 3. All the countries in a region organised by largest population to smallest.
+         */
 
-        System.out.println("Required case : ");
+        // Selecting the query from the command-line argument
+        int intDecision = Integer.parseInt(args[0]);
+        System.out.printf("Printing report %d\n%n", intDecision);
 
-        int intDecision = scanner.nextInt();
+        // Decide which report to run
+        switch (intDecision) {
 
-        switch(intDecision){
-            case(1):
-                System.out.println("U chose 1 \n");
-                try{
+            case (1):
+                try {
                     conn = App.getConnection();
                     prst = conn.prepareStatement("SELECT name, population FROM country ORDER BY population DESC;");
                     rs = prst.executeQuery();
 
-                    while(rs.next()) {
+                    while (rs.next()) {
                         String queryResult1 = rs.getString("country.name");
                         String queryResult2 = rs.getString("country.population");
                         System.out.println(queryResult1 + " : " + queryResult2);
                     }
-                }
-                catch(Exception ex){
-                    System.out.println("" + ex);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 break;
 
-            case(2):
-                System.out.println("U chose 2");
-                try{
+            case (2):
+                try {
                     conn = App.getConnection();
                     prst = conn.prepareStatement("SELECT name, continent, population FROM world.country ORDER BY continent, population DESC;");
                     rs = prst.executeQuery();
 
-                    while(rs.next()) {
+                    while (rs.next()) {
                         String queryResult1 = rs.getString("country.name");
                         String queryResult2 = rs.getString("country.continent");
                         String queryResult3 = rs.getString("country.population");
-                        System.out.println(queryResult1 + ", " + queryResult2 + " : " + queryResult3 );
+                        System.out.println(queryResult1 + ", " + queryResult2 + " : " + queryResult3);
                     }
-                }
-                catch(Exception ex){
-                    System.out.println("" + ex);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 break;
-            case(3):
-                System.out.println("U chose 3 \n");
-                try{
+            case (3):
+                try {
                     conn = App.getConnection();
                     prst = conn.prepareStatement("SELECT name, region, population FROM country ORDER BY region, population DESC;");
                     rs = prst.executeQuery();
 
-                    while(rs.next()) {
+                    while (rs.next()) {
                         String queryResult1 = rs.getString("country.name");
                         String queryResult2 = rs.getString("country.region");
                         String queryResult3 = rs.getString("country.population");
                         System.out.println(queryResult1 + ", " + queryResult2 + " : " + queryResult3);
                     }
-                }
-                catch(Exception ex){
-                    System.out.println("" + ex);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
                 break;
         }
