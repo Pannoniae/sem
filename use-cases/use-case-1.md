@@ -36,4 +36,4 @@ The Management board requests a set of data of countries around the world.
 None.
 
 ## SCHEDULE
-**DUE DATE**: Release v0.1
+**DUE DATE**: release v0.1
