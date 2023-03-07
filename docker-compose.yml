@@ -25,5 +25,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+       - database-service
 #    ports:
 #      - "8080:8080"
