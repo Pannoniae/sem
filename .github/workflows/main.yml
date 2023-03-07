@@ -11,7 +11,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '19'
-          distribution: 'eclipse-temurin'
+          distribution: 'temurin'
       - name: Compile with Maven
         run: mvn clean package
       - name: Setup network
