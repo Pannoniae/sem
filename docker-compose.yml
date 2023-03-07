@@ -19,12 +19,18 @@ services:
 
   app-service:
     container_name: my-app
-#    image: openjdk:latest
-#    volumes:
-#      - .:/tmp
+    image: openjdk:latest
+    volumes:
+      - .:/tmp
     build:
       context: .
       dockerfile: Dockerfile
-#    ports:
-#      - "8080:8080"
+    ports:
+      - 8080:8080
+    working_dir: /tmp
+    command:
+      - chmod +rwx target/sem-jwd-0.1.0.3.jar
+    entrypoint: ["java", "-jar", "target/sem-jwd-0.1.0.3.jar"]
+
+
 
