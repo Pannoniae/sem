@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="seMethods" />
+        <module name="sem-jwd" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="seMethods" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>
