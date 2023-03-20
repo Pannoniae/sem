@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.io.Console;
+import java.io.IOException;
 import java.sql.*; //we import all the stuff from the java.sql codebase to be able to use java mysql integration in our awesome group project. additionally if you wont mark us as PERFECT/GORGEOUS WE WILL COMMENT ALL THE LINES OF OUR CODE LIKE THIS C:
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -69,14 +70,14 @@ public class App {
      *
      * @return The newly created connection.
      */
-    public static Connection getConnection() throws SQLException, ClassNotFoundException {
+    public static Connection getConnection() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-        String url = "jdbc:mysql://0.0.0.0:3306/world";
+        String url = "jdbc:mysql://db:3306/world";
         String user = "root";
         String pass = "123";
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(url, user, pass);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -92,9 +93,9 @@ public class App {
      */
     public static void main(String[] args) {
 
-        Connection conn;
-        PreparedStatement prst;
-        ResultSet rs;
+        System.out.println("Hello world from main!");
+
+
 
 
         if (args[0].equals("--help")) {
@@ -107,8 +108,13 @@ public class App {
         int intDecision = Integer.parseInt(args[0]);
         System.out.printf("Printing report %d\n%n", intDecision);
 
+
+        String arg1 = "";
         // The first argument to the report
-        String arg1 = args[1];
+        if (args.length > 1) {
+            arg1 = args[1];
+        }
+
         int arg2;
         if (args.length > 2) {
             // The second argument to the report
