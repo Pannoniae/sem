@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   db:
-  container_name: db
+    container_name: db
     image: mysql:latest
     ports:
       - "3306:3306"
