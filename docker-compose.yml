@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   db:
-  #  container_name: my-db
+  container_name: db
     image: mysql:latest
     ports:
       - "3306:3306"
@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile-MySQL
 
   app:
-#    container_name: my-app
+    container_name: app
 #    image: openjdk:latest
     #volumes:
     #  - .:/tmp
