@@ -48,6 +48,17 @@ public class App {
         return conn;
     }
 
+    public void disconnect() {
+        if (conn != null) {
+            try {
+                // Close connection
+                conn.close();
+            } catch (Exception e) {
+                System.out.println("Error closing connection to database");
+            }
+        }
+    }
+
     /**
      * The list of reports the program produces.
      */
@@ -91,6 +102,11 @@ public class App {
         reports.put(33, "The number of people who speak Hindi from greatest number to smallest, including the percentage of the world population.");
         reports.put(34, "The number of people who speak Spanish from greatest number to smallest, including the percentage of the world population.");
         reports.put(35, "The number of people who speak Arabic from greatest number to smallest, including the percentage of the world population.");
+        reports.put(36, "Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.");
+        reports.put(37, "Total number of people and the percentage of the world population speaking English sorted from greatest to smallest.");
+        reports.put(38, "Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.");
+        reports.put(39, "Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.");
+        reports.put(40, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
     }
 
     /**
@@ -158,6 +174,7 @@ public class App {
         CountryReport report;
         CityReport cityReport;
         CapitalCityReport capitalCityReport;
+        LanguageReport languageReport;
         // Decide which report to run
         switch (intDecision) {
 
@@ -249,7 +266,26 @@ public class App {
                 capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.region = '" + arg1 + "' ORDER BY population DESC;", arg2);
                 capitalCityReport.execute();
                 break;
-
+            case 23:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
+                languageReport.execute();
+                break;
+            case 24:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'English' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
+                languageReport.execute();
+                break;
+            case 25:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Hindi' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
+                languageReport.execute();
+                break;
+            case 26:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Spanish' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
+                languageReport.execute();
+                break;
+            case 27:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Arabic' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
+                languageReport.execute();
+                break;
 
             default:
                 throw new IllegalStateException("Unexpected value or query not implemented yet: " + intDecision);
