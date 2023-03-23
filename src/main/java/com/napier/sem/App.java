@@ -14,6 +14,39 @@ import java.util.Scanner;
  * The main class for The Flying Scot application.
  */
 public class App {
+    private static Connection conn = null;
+
+
+
+    protected static Connection connect(String location){
+        try {
+            // Load Database driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
+        }
+
+        int retries = 10;
+        for (int i = 0; i < retries; ++i) {
+            System.out.println("Connecting to database...");
+            try {
+                Thread.sleep(3000);
+                // Connect to database
+                conn = DriverManager.getConnection("jdbc:mysql://" + location + "/world?allowPublicKeyRetrieval=true&useSSL=false", "root", "123");
+                System.out.println("Successfully connected");
+                break;
+            } catch (SQLException sqle) {
+                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println(sqle.getMessage());
+            }
+            catch (InterruptedException ie)
+            {
+                System.out.println("Thread interrupted? Should not happen.");
+            }
+        }
+        return conn;
+    }
 
     /**
      * The list of reports the program produces.
@@ -63,28 +96,13 @@ public class App {
     /**
      * The static MySQL connection instance.
      */
-    private static Connection conn;
+
 
     /**
      * Create a database driver connection to a hardcoded set of credentials.
      *
      * @return The newly created connection.
      */
-    public static Connection getConnection() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-
-        String url = "jdbc:mysql://db:3306/world";
-        String user = "root";
-        String pass = "123";
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection(url, user, pass);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            throw ex;
-        }
-        return conn;
-    }
 
     /**
      * The main entry point to The Flying Scot application.
@@ -93,32 +111,45 @@ public class App {
      */
     public static void main(String[] args) {
 
+
         System.out.println("Hello world from main!");
 
+        App a = new App();
+
+        // Connect to database
+        if (args.length < 1)
+        {
+            a.connect("localhost:3306");
+        }
+        else
+        {
+            a.connect(args[0]);
+        }
+
+        // Selecting the query from the command-line argument
+        int intDecision = Integer.parseInt(args[1]);
+        System.out.printf("Printing report %d\n%n", intDecision);
 
 
-
-        if (args[0].equals("--help")) {
+        if (args[2].equals("--help")) {
             for (Map.Entry<Integer, String> report : reports.entrySet()) {
                 System.out.println(report.getKey() + ".: " + report.getValue());
             }
         }
 
-        // Selecting the query from the command-line argument
-        int intDecision = Integer.parseInt(args[0]);
-        System.out.printf("Printing report %d\n%n", intDecision);
+
 
 
         String arg1 = "";
         // The first argument to the report
-        if (args.length > 1) {
-            arg1 = args[1];
+        if (args.length > 2) {
+            arg1 = args[2];
         }
 
         int arg2;
-        if (args.length > 2) {
+        if (args.length > 3) {
             // The second argument to the report
-            arg2 = Integer.parseInt(args[2]);
+            arg2 = Integer.parseInt(args[3]);
         } else {
             arg2 = 5;
         }
@@ -135,11 +166,11 @@ public class App {
                 report.execute();
                 break;
             case 2:
-                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = " + arg1 + ", population DESC;");
+                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = '" + arg1 + "'ORDER BY population DESC;");
                 report.execute();
                 break;
             case 3:
-                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = " + arg1 + ", population DESC;");
+                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = " + arg1 + "ORDER BY population DESC;");
                 report.execute();
                 break;
             case 4:

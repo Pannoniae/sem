@@ -15,7 +15,8 @@ public class LimitedCountryReport extends CountryReport {
     @Override
     public void execute() {
         try {
-            Connection conn = App.getConnection();
+            App a = new App();
+            Connection conn = a.connect("db:3306");
             PreparedStatement prst = conn.prepareStatement(query);
             ResultSet rs = prst.executeQuery();
 

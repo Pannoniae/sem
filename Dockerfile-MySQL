@@ -1,4 +1,0 @@
-FROM mysql:latest
-ENV MYSQL_ROOT_PASSWORD=123
-ENV MYSQL_DATABASE=world
-ADD init/world.sql /docker-entrypoint-initdb.d/

@@ -1,5 +1,5 @@
-FROM eclipse-temurin:latest
-COPY ./target/sem-jwd-0.1.0.3.jar ./tmp
+FROM eclipse-temurin
+COPY ./target/app-jar-with-dependencies.jar /tmp
 WORKDIR /tmp
-CMD ["java", "-jar", "-Djava.net.preferIPv4Stack=true", "sem-jwd-0.1.0.3.jar", "1"]
-#CMD ["tail", "-f", "/dev/null"]
+
+ENTRYPOINT ["java", "-jar", "app-jar-with-dependencies.jar", "db:3306", "2", "Asia", "5"]
