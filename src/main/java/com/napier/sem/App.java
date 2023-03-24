@@ -14,9 +14,17 @@ import java.util.Scanner;
  * The main class for The Flying Scot application.
  */
 public class App {
+
+    /**
+     * The static MySQL connection instance.
+     */
     private static Connection conn = null;
 
-
+    /**
+     * Create a database driver connection to a hardcoded set of credentials.
+     *
+     * @return The newly created connection.
+     */
 
     protected static Connection connect(String location){
         try {
@@ -109,16 +117,6 @@ public class App {
         reports.put(40, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
     }
 
-    /**
-     * The static MySQL connection instance.
-     */
-
-
-    /**
-     * Create a database driver connection to a hardcoded set of credentials.
-     *
-     * @return The newly created connection.
-     */
 
     /**
      * The main entry point to The Flying Scot application.
