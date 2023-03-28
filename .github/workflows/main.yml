@@ -15,7 +15,7 @@ jobs:
       - name: Compile with Maven
         run: mvn clean package
       - name: Setup network
-        run: docker-compose up 
+        run: docker-compose up -d
       - name: view logs of db
         run: docker logs db
       - name: view logs of app
