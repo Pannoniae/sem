@@ -16,7 +16,7 @@ jobs:
         run: mvn clean package
       - name: Setup network
         run: docker-compose up -d
-      - name: view logs of app
-        run: docker logs app
       - name: view logs of db
         run: docker logs db
+      - name: view logs of app
+        run: docker logs app
