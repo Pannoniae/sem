@@ -15,7 +15,7 @@ public class CityReport implements Report {
     public void execute() {
         try {
             App a = new App();
-            Connection conn = a.connect("db:3306");
+            Connection conn = a.connect("0.0.0.0");
             PreparedStatement prst = conn.prepareStatement(query);
             ResultSet rs = prst.executeQuery();
 

@@ -133,7 +133,7 @@ public class App {
         // Connect to database
         if (args.length < 1)
         {
-            a.connect("localhost:3306");
+            a.connect("0.0.0.0");
         }
         else
         {
