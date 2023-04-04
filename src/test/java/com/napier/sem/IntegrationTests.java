@@ -65,20 +65,14 @@ public class IntegrationTests {
 //
     @Test
     void testCapitalCityReport(){
-        App app = new App();
-        app.connect("0.0.0.0");
-
         CapitalCityReport capitalCityReport;
-        capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;");
+        capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;");
         capitalCityReport.execute();
         System.out.println("Capital City Report ++");
     }
 
     @Test
     void testCityReport(){
-        App app = new App();
-        app.connect("0.0.0.0");
-
         CityReport cityReport;
         cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC;");
         cityReport.execute();
@@ -87,9 +81,6 @@ public class IntegrationTests {
 
     @Test
     void testCountryReport(){
-        App app = new App();
-        app.connect("0.0.0.0");
-
         CountryReport countryReport;
         countryReport = new CountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;");
         countryReport.execute();
@@ -98,9 +89,6 @@ public class IntegrationTests {
 
     @Test
     void testLanguageReport(){
-        App app = new App();
-        app.connect("0.0.0.0");
-
         LanguageReport languageReport;
         languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
         languageReport.execute();
@@ -109,33 +97,24 @@ public class IntegrationTests {
 
     @Test
     void testLimitedCapitalCityReport(){
-        App app = new App();
-        app.connect("0.0.0.0");
-
         LimitedCapitalCityReport limitedCapitalCityReport;
-        limitedCapitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;", 5);
+        limitedCapitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.CountryCode = country.code AND country.capital = city.ID ORDER BY population DESC LIMIT 5;");
         limitedCapitalCityReport.execute();
         System.out.println("Limited Capital City Report ++");
     }
 
     @Test
     void testLimitedCityReport(){
-        App app = new App();
-        app.connect("0.0.0.0");
-
         LimitedCityReport limitedCityReport;
-        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC;",5);
+        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC LIMIT 5;");
         limitedCityReport.execute();
         System.out.println("Limited City Report ++");
     }
 
     @Test
     void testLimitedCountryReport(){
-        App app = new App();
-        app.connect("0.0.0.0");
-
         LimitedCountryReport limitedCountryReport;
-        limitedCountryReport = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;", 5);
+        limitedCountryReport = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT 5;");
         limitedCountryReport.execute();
         System.out.println("Limited Country Report ++");
     }
@@ -154,29 +133,6 @@ public class IntegrationTests {
 //        populationReport.execute();
 //        System.out.println("Population Report ++");
 //    }
-//
-//    @Test
-//    void TestMain() {
-//        String[] arrayArgs = {"localhost:33060"};
-//        App.main(arrayArgs);
-//    }
-//
-//    @Test
-//    void TestDisconnectNoDB() {
-//        App a = new App();
-//        a.disconnect();
-//    }
-//
-//    @Test
-//    void TestDisconnectDB() {
-//        App a = new App();
-//        a.connect("db:3306");
-//        a.disconnect();
-//    }
-//
-//    @Test
-//    void TestConnectDB() {
-//        App a = new App();
-//        a.connect("db:3306");
-//    }
+// NOT WRITTEN CLASS
+
 }

@@ -16,7 +16,9 @@ jobs:
         run: mvn clean package
       - name: Setup network
         run: docker-compose up -d
+      - name: run tests
+        run: mvn test -Dtest=IntegrationTests
       - name: view logs of db
-        run: docker logs db
+        run: docker logs db; echo "database is ready for connections"
       - name: view logs of app
         run: docker logs app

@@ -5,11 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LimitedCapitalCityReport extends CapitalCityReport {
-    protected final int limit;
 
-    public LimitedCapitalCityReport(String query, int limit) {
+    public LimitedCapitalCityReport(String query) {
         super(query);
-        this.limit = limit;
     }
 
     @Override
@@ -20,9 +18,9 @@ public class LimitedCapitalCityReport extends CapitalCityReport {
             PreparedStatement prst = conn.prepareStatement(query);
             ResultSet rs = prst.executeQuery();
 
-            for (int i = 0; i < limit; i++) {
+            while(rs.next()) {
                 String queryResult1 = rs.getString("city.name");
-                String queryResult2 = rs.getString("city.country");
+                String queryResult2 = rs.getString("country.name");
                 String queryResult3 = rs.getString("city.population");
                 System.out.println(queryResult1 + " : " + queryResult2 + " : " +
                         queryResult3);

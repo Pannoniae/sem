@@ -140,16 +140,11 @@ public class App {
             a.connect(args[0]);
         }
 
-        // Selecting the query from the command-line argument
-        int intDecision = Integer.parseInt(args[1]);
-        System.out.printf("Printing report %d\n%n", intDecision);
-
-
-        if (args[2].equals("--help")) {
-            for (Map.Entry<Integer, String> report : reports.entrySet()) {
-                System.out.println(report.getKey() + ".: " + report.getValue());
-            }
-        }
+        //argument after "java -jar <jar_name>
+        // [argument 0 - stands for db location]
+        // [argument 1 - stands for report number]
+        // [argument 2 - stands for region/continent]
+        // [argument 3 - stands for limitations for the limited reports]"
 
 
 
@@ -160,14 +155,24 @@ public class App {
             arg1 = args[2];
         }
 
-        int arg2;
+        String arg2;
         if (args.length > 3) {
             // The second argument to the report
-            arg2 = Integer.parseInt(args[3]);
+            arg2 = args[3];
         } else {
-            arg2 = 5;
+            arg2 = "5";
         }
 
+        // Selecting the query from the command-line argument
+        int intDecision = Integer.parseInt(args[1]);
+        System.out.printf("Printing report %d\n%n", intDecision);
+
+
+        if (args[2].equals("--help")) {
+            for (Map.Entry<Integer, String> report : reports.entrySet()) {
+                System.out.println(report.getKey() + ".: " + report.getValue());
+            }
+        }
 
         CountryReport report;
         CityReport cityReport;
@@ -189,15 +194,15 @@ public class App {
                 report.execute();
                 break;
             case 4:
-                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;", arg2);
+                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT LIMIT " + arg2 + ";");
                 report.execute();
                 break;
             case 5:
-                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = '" + arg1 + "' population DESC;", arg2);
+                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = '" + arg1 + "' population DESC LIMIT " + arg2 + ";");
                 report.execute();
                 break;
             case 6:
-                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = '" + arg1 + "' population DESC;", arg2);
+                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = '" + arg1 + "' population DESC LIMIT " + arg2 + ";");
                 report.execute();
                 break;
             case 7:
@@ -221,23 +226,23 @@ public class App {
                 cityReport.execute();
                 break;
             case 12:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC;", arg2);
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC LIMIT " + arg2 + ";");
                 cityReport.execute();
                 break;
             case 13:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.continent = '" + arg1 + "' ORDER BY population DESC;", arg2);
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.continent = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
                 cityReport.execute();
                 break;
             case 14:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.region = '" + arg1 + "' ORDER BY population DESC;", arg2);
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.region = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
                 cityReport.execute();
                 break;
             case 15:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.name = '" + arg1 + "' ORDER BY population DESC;", arg2);
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.name = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
                 cityReport.execute();
                 break;
             case 16:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND city.district = '" + arg1 + "' ORDER BY population DESC;", arg2);
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND city.district = '" + arg1 + "' ORDER BY population DESC LIMIT" + arg2 + ";");
                 cityReport.execute();
                 break;
             case 17:
@@ -253,15 +258,15 @@ public class App {
                 capitalCityReport.execute();
                 break;
             case 20:
-                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;", arg2);
+                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC LIMIT " + arg2 + ";");
                 capitalCityReport.execute();
                 break;
             case 21:
-                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.continent = '" + arg1 + "' ORDER BY population DESC;", arg2);
+                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.continent = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
                 capitalCityReport.execute();
                 break;
             case 22:
-                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.region = '" + arg1 + "' ORDER BY population DESC;", arg2);
+                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.region = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
                 capitalCityReport.execute();
                 break;
             case 23:
