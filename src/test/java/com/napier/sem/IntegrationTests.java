@@ -80,7 +80,7 @@ public class IntegrationTests {
         app.connect("0.0.0.0");
 
         CityReport cityReport;
-        cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC;");
+        cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC;");
         cityReport.execute();
         System.out.println("City Report ++");
     }
@@ -124,7 +124,7 @@ public class IntegrationTests {
         app.connect("0.0.0.0");
 
         LimitedCityReport limitedCityReport;
-        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC LIMIT 5;",5);
+        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC;",5);
         limitedCityReport.execute();
         System.out.println("Limited City Report ++");
     }
