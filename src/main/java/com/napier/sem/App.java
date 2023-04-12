@@ -105,16 +105,11 @@ public class App {
         reports.put(28, "The population of a chosen region.");
         reports.put(29, "The population of a chosen country.");
         reports.put(30, "The population of a chosen district.");
-        reports.put(31, "The number of people who speak Chinese from greatest number to smallest, including the percentage of the world population.");
-        reports.put(32, "The number of people who speak English from greatest number to smallest, including the percentage of the world population.");
-        reports.put(33, "The number of people who speak Hindi from greatest number to smallest, including the percentage of the world population.");
-        reports.put(34, "The number of people who speak Spanish from greatest number to smallest, including the percentage of the world population.");
-        reports.put(35, "The number of people who speak Arabic from greatest number to smallest, including the percentage of the world population.");
-        reports.put(36, "Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.");
-        reports.put(37, "Total number of people and the percentage of the world population speaking English sorted from greatest to smallest.");
-        reports.put(38, "Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.");
-        reports.put(39, "Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.");
-        reports.put(40, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
+        reports.put(31, "Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.");
+        reports.put(32, "Total number of people and the percentage of the world population speaking English sorted from greatest to smallest.");
+        reports.put(33, "Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.");
+        reports.put(34, "Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.");
+        reports.put(35, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
     }
 
 
