@@ -18,3 +18,7 @@ services:
     build: .
     depends_on:
       - db
+    volumes:
+      - ./data/:/data
+    command:
+      - cp /data/ /tmp/data/
