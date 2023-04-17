@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import java.sql.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.converter.ConvertWith;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -125,6 +126,32 @@ public class IntegrationTests {
         App.main(arrayArgs);
     }
 
+    @Test
+    void testPopulationReport(){
+        PopulationReport populationReport;
+        populationReport = new PopulationReport("SELECT\n" +
+                "  co.Region AS Name,\n" +
+                "  SUM(co.Population) AS total_population,\n" +
+                "  SUM(CASE WHEN cl.IsOfficial = 'T' THEN co.Population ELSE 0 END) AS urban_population,\n" +
+                "  SUM(CASE WHEN cl.IsOfficial = 'F' THEN co.Population ELSE 0 END) AS rural_population\n" +
+                "FROM\n" +
+                "  city ci\n" +
+                "  JOIN country co ON ci.CountryCode = co.Code\n" +
+                "  JOIN countrylanguage cl ON ci.CountryCode = cl.CountryCode\n" +
+                "GROUP BY\n" +
+                "  co.Region;\n");
+        populationReport.execute();
+        System.out.println("Population Report ++");
+    }
+    @Test
+    void testPopulationReportOption(){
+        PopulationReportOption populationReportOption;
+        populationReportOption = new PopulationReportOption("SELECT Name, Population\n" +
+                "FROM city\n" +
+                "WHERE Name = 'Kyiv';\n");
+        populationReportOption.execute();
+        System.out.println("Population Report Option ++");
+    }
 
 //    @Test
 //    void testPopulationReport(){
