@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import java.sql.*;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.converter.ConvertWith;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -54,19 +55,10 @@ public class IntegrationTests {
 
     }
 
-
-//    static App app;
-//
-//    @BeforeAll
-//    static void init(){
-//        app = new App();
-//        app.connect("0.0.0.0:3306");
-//    }
-//
     @Test
     void testCapitalCityReport(){
         CapitalCityReport capitalCityReport;
-        capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;");
+        capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;", CapitalCityReport.getAbsPath());
         capitalCityReport.execute();
         System.out.println("Capital City Report ++");
     }
@@ -74,7 +66,7 @@ public class IntegrationTests {
     @Test
     void testCityReport(){
         CityReport cityReport;
-        cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC;");
+        cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC;", CityReport.getAbsPath());
         cityReport.execute();
         System.out.println("City Report ++");
     }
@@ -82,7 +74,7 @@ public class IntegrationTests {
     @Test
     void testCountryReport(){
         CountryReport countryReport;
-        countryReport = new CountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;");
+        countryReport = new CountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;", CountryReport.getAbsPath());
         countryReport.execute();
         System.out.println("Country Report ++");
     }
@@ -90,7 +82,7 @@ public class IntegrationTests {
     @Test
     void testLanguageReport(){
         LanguageReport languageReport;
-        languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
+        languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;", LanguageReport.getAbsPath());
         languageReport.execute();
         System.out.println("Language Report ++");
     }
@@ -98,7 +90,7 @@ public class IntegrationTests {
     @Test
     void testLimitedCapitalCityReport(){
         LimitedCapitalCityReport limitedCapitalCityReport;
-        limitedCapitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.CountryCode = country.code AND country.capital = city.ID ORDER BY population DESC LIMIT 5;");
+        limitedCapitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.CountryCode = country.code AND country.capital = city.ID ORDER BY population DESC LIMIT 5;", LimitedCapitalCityReport.getAbsPath());
         limitedCapitalCityReport.execute();
         System.out.println("Limited Capital City Report ++");
     }
@@ -106,7 +98,7 @@ public class IntegrationTests {
     @Test
     void testLimitedCityReport(){
         LimitedCityReport limitedCityReport;
-        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC LIMIT 5;");
+        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC LIMIT 5;", LimitedCityReport.getAbsPath());
         limitedCityReport.execute();
         System.out.println("Limited City Report ++");
     }
@@ -114,7 +106,7 @@ public class IntegrationTests {
     @Test
     void testLimitedCountryReport(){
         LimitedCountryReport limitedCountryReport;
-        limitedCountryReport = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT 5;");
+        limitedCountryReport = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT 5;", LimitedCountryReport.getAbsPath());
         limitedCountryReport.execute();
         System.out.println("Limited Country Report ++");
     }
@@ -125,14 +117,33 @@ public class IntegrationTests {
         App.main(arrayArgs);
     }
 
+    @Test
+    void testPopulationReport(){
+        PopulationReport populationReport;
+        populationReport = new PopulationReport("SELECT\n" +
+                "  co.Region AS Name,\n" +
+                "  SUM(co.Population) AS total_population,\n" +
+                "  SUM(CASE WHEN cl.IsOfficial = 'T' THEN co.Population ELSE 0 END) AS urban_population,\n" +
+                "  SUM(CASE WHEN cl.IsOfficial = 'F' THEN co.Population ELSE 0 END) AS rural_population\n" +
+                "FROM\n" +
+                "  city ci\n" +
+                "  JOIN country co ON ci.CountryCode = co.Code\n" +
+                "  JOIN countrylanguage cl ON ci.CountryCode = cl.CountryCode\n" +
+                "GROUP BY\n" +
+                "  co.Region;\n", PopulationReport.getAbsPath());
+        populationReport.execute();
+        System.out.println("Population Report ++");
+    }
+    @Test
+    void testPopulationReportOption(){
+        PopulationReportOption populationReportOption;
+        populationReportOption = new PopulationReportOption("SELECT Name, Population\n" +
+                "FROM city\n" +
+                "WHERE Name = 'Kyiv';\n", PopulationReportOption.getAbsPath());
+        populationReportOption.execute();
+        System.out.println("Population Report Option ++");
+    }
 
-//    @Test
-//    void testPopulationReport(){
-//        PopulationReport populationReport;
-//        populationReport = new PopulationReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;", 5);
-//        populationReport.execute();
-//        System.out.println("Population Report ++");
-//    }
-// NOT WRITTEN CLASS
+
 
 }

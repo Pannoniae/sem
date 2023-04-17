@@ -105,11 +105,12 @@ public class App {
         reports.put(28, "The population of a chosen region.");
         reports.put(29, "The population of a chosen country.");
         reports.put(30, "The population of a chosen district.");
-        reports.put(31, "Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.");
-        reports.put(32, "Total number of people and the percentage of the world population speaking English sorted from greatest to smallest.");
-        reports.put(33, "Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.");
-        reports.put(34, "Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.");
-        reports.put(35, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
+        reports.put(31, "The population of a selected city.");
+        reports.put(32, "Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.");
+        reports.put(33, "Total number of people and the percentage of the world population speaking English sorted from greatest to smallest.");
+        reports.put(34, "Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.");
+        reports.put(35, "Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.");
+        reports.put(36, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
     }
 
 
@@ -173,115 +174,193 @@ public class App {
         CityReport cityReport;
         CapitalCityReport capitalCityReport;
         LanguageReport languageReport;
+        PopulationReport populationReport;
+        PopulationReportOption populationReportOption;
         // Decide which report to run
         switch (intDecision) {
 
             case 1:
-                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;");
+                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;", "/data/results.md");
                 report.execute();
                 break;
             case 2:
-                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = '" + arg1 + "'ORDER BY population DESC;");
+                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = '" + arg1 + "'ORDER BY population DESC;", "/data/results.md");
                 report.execute();
                 break;
             case 3:
-                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = '" + arg1 + "' ORDER BY population DESC;");
+                report = new CountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = '" + arg1 + "' ORDER BY population DESC;", "/data/results.md");
                 report.execute();
                 break;
             case 4:
-                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT LIMIT " + arg2 + ";");
+                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 report.execute();
                 break;
             case 5:
-                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = '" + arg1 + "' population DESC LIMIT " + arg2 + ";");
+                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM world.country WHERE continent = '" + arg1 + "' population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 report.execute();
                 break;
             case 6:
-                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = '" + arg1 + "' population DESC LIMIT " + arg2 + ";");
+                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country WHERE region = '" + arg1 + "' population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 report.execute();
                 break;
             case 7:
-                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC;");
+                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC;", "/data/results.md");
                 cityReport.execute();
                 break;
             case 8:
-                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.continent = '" + arg1 + "' ORDER BY population DESC;");
+                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND country.continent = '" + arg1 + "' ORDER BY population DESC;", "/data/results.md");
                 cityReport.execute();
                 break;
             case 9:
-                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.region = '" + arg1 + "' ORDER BY population DESC;");
+                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND country.region = '" + arg1 + "' ORDER BY population DESC;", "/data/results.md");
                 cityReport.execute();
                 break;
             case 10:
-                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.name = '" + arg1 + "' ORDER BY population DESC;");
+                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND country.name = '" + arg1 + "' ORDER BY population DESC;", "/data/results.md");
                 cityReport.execute();
                 break;
             case 11:
-                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND city.district = '" + arg1 + "' ORDER BY population DESC;");
+                cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND city.district = '" + arg1 + "' ORDER BY population DESC;", "/data/results.md");
                 cityReport.execute();
                 break;
             case 12:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC LIMIT " + arg2 + ";");
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 cityReport.execute();
                 break;
             case 13:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.continent = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND country.continent = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 cityReport.execute();
                 break;
             case 14:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.region = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND country.region = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 cityReport.execute();
                 break;
             case 15:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND country.name = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND country.name = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 cityReport.execute();
                 break;
             case 16:
-                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population, FROM city, country WHERE city.countryCode = country.code AND city.district = '" + arg1 + "' ORDER BY population DESC LIMIT" + arg2 + ";");
+                cityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city, country WHERE city.countryCode = country.code AND city.district = '" + arg1 + "' ORDER BY population DESC LIMIT" + arg2 + ";", "/data/results.md");
                 cityReport.execute();
                 break;
             case 17:
-                capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;");
+                capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population \n" +
+                        "FROM city, country \n" +
+                        "WHERE city.countryCode = country.code AND country.capital = city.ID \n" +
+                        "ORDER BY population DESC;\n", "/data/results.md");
                 capitalCityReport.execute();
                 break;
             case 18:
-                capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.continent = '" + arg1 + "' ORDER BY population DESC;");
+                capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.continent = '" + arg1 + "' ORDER BY population DESC;", "/data/results.md");
                 capitalCityReport.execute();
                 break;
             case 19:
-                capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.region = '" + arg1 + "' ORDER BY population DESC;");
+                capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.region = '" + arg1 + "' ORDER BY population DESC;", "/data/results.md");
                 capitalCityReport.execute();
                 break;
             case 20:
-                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC LIMIT " + arg2 + ";");
+                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 capitalCityReport.execute();
                 break;
             case 21:
-                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.continent = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
+                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.continent = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 capitalCityReport.execute();
                 break;
             case 22:
-                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population, FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.region = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";");
+                capitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population FROM city, country WHERE city.countryCode = country.code AND country.capital = city.ID AND country.region = '" + arg1 + "' ORDER BY population DESC LIMIT " + arg2 + ";", "/data/results.md");
                 capitalCityReport.execute();
                 break;
             case 23:
-                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
-                languageReport.execute();
+                populationReport = new PopulationReport("SELECT c.Continent AS Name, \n" +
+                        "       SUM(c.Population) AS total_population, \n" +
+                        "       SUM(CASE WHEN ci.Population > 0 THEN ci.Population ELSE 0 END) AS urban_population, \n" +
+                        "       SUM(CASE WHEN ci.Population = 0 THEN c.Population ELSE 0 END) AS rural_population\n" +
+                        "FROM country c \n" +
+                        "LEFT JOIN city ci ON c.Code = ci.CountryCode \n" +
+                        "GROUP BY c.Continent;\n", "/data/results.md");
+                populationReport.execute();
                 break;
             case 24:
-                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'English' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
-                languageReport.execute();
+                populationReport = new PopulationReport("SELECT\n" +
+                        "  co.Region AS Name,\n" +
+                        "  SUM(co.Population) AS total_population,\n" +
+                        "  SUM(CASE WHEN cl.IsOfficial = 'T' THEN co.Population ELSE 0 END) AS urban_population,\n" +
+                        "  SUM(CASE WHEN cl.IsOfficial = 'F' THEN co.Population ELSE 0 END) AS rural_population\n" +
+                        "FROM\n" +
+                        "  city ci\n" +
+                        "  JOIN country co ON ci.CountryCode = co.Code\n" +
+                        "  JOIN countrylanguage cl ON ci.CountryCode = cl.CountryCode\n" +
+                        "GROUP BY\n" +
+                        "  co.Region;\n", "/data/results.md");
+                populationReport.execute();
                 break;
             case 25:
-                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Hindi' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
-                languageReport.execute();
+                populationReport = new PopulationReport("SELECT \n" +
+                        "  c.Name AS Name, \n" +
+                        "  SUM(c.Population) AS total_population, \n" +
+                        "  SUM(IFNULL(ci.Population,0)) AS urban_population, \n" +
+                        "  SUM(IFNULL(c.Population,0))-SUM(IFNULL(ci.Population,0)) AS rural_population \n" +
+                        "FROM \n" +
+                        "  country c \n" +
+                        "  LEFT JOIN city ci ON c.Code = ci.CountryCode \n" +
+                        "GROUP BY \n" +
+                        "  c.Code;\n", "/data/results.md");
+                populationReport.execute();
                 break;
             case 26:
-                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Spanish' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
-                languageReport.execute();
+                populationReportOption = new PopulationReportOption("SELECT 'World' AS Name, SUM(Population) AS Population FROM country;", "/data/results.md");
+                populationReportOption.execute();
                 break;
             case 27:
-                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Arabic' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
+                populationReportOption = new PopulationReportOption("SELECT Continent AS Name, SUM(Population) AS Population\n" +
+                        "FROM country\n" +
+                        "WHERE Continent = '" + arg1 + "';", "/data/results.md");
+                populationReportOption.execute();
+                break;
+            case 28:
+                populationReportOption = new PopulationReportOption("SELECT co.Region AS Name, SUM(c.Population) AS Population\n" +
+                        "FROM city c\n" +
+                        "JOIN country co ON c.CountryCode = co.Code\n" +
+                        "WHERE co.Region = '" + arg1 +  "';", "/data/results.md");
+                populationReportOption.execute();
+                break;
+            case 29:
+                populationReportOption = new PopulationReportOption("SELECT c.Name AS Name, SUM(ct.Population) AS Population\n" +
+                        "FROM country c\n" +
+                        "JOIN city ct ON c.Code = ct.CountryCode\n" +
+                        "WHERE c.Name = '" + arg1 + "';\n", "/data/results.md");
+                populationReportOption.execute();
+                break;
+            case 30:
+                populationReportOption = new PopulationReportOption("SELECT District AS Name, SUM(Population) AS Population\n" +
+                        "FROM city\n " +
+                        "WHERE District = '" + arg1 + "';", "/data/results.md");
+                populationReportOption.execute();
+                break;
+            case 31:
+                populationReportOption = new PopulationReportOption("SELECT Name, Population\n" +
+                        "FROM city\n" +
+                        "WHERE Name = '" + arg1 + "';\n", "/data/results.md");
+                populationReportOption.execute();
+                break;
+            case 32:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;", "/data/results.md");
+                languageReport.execute();
+                break;
+            case 33:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'English' GROUP BY cl.Language ORDER BY TotalPopulation DESC;", "/data/results.md");
+                languageReport.execute();
+                break;
+            case 34:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Hindi' GROUP BY cl.Language ORDER BY TotalPopulation DESC;", "/data/results.md");
+                languageReport.execute();
+                break;
+            case 35:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Spanish' GROUP BY cl.Language ORDER BY TotalPopulation DESC;", "/data/results.md");
+                languageReport.execute();
+                break;
+            case 36:
+                languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Arabic' GROUP BY cl.Language ORDER BY TotalPopulation DESC;", "/data/results.md");
                 languageReport.execute();
                 break;
 
