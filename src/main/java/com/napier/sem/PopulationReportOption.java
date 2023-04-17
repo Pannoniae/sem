@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Paths;
 
 public class PopulationReportOption implements Report {
     protected final String query;
@@ -33,7 +35,8 @@ public class PopulationReportOption implements Report {
 
                 sb.append("| " + queryResult1 + " | " + queryResult2 + " |\n");
             }
-            String filePath = "/data/results.md";
+            String getCurrDir = System.getProperty("user.dir");
+            String filePath = getCurrDir + "/data/results.md";
             String results = sb.toString();
             try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))){
                 writer.write(results);

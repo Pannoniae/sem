@@ -192,7 +192,7 @@ public class App {
                 report.execute();
                 break;
             case 4:
-                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT LIMIT " + arg2 + ";");
+                report = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT " + arg2 + ";");
                 report.execute();
                 break;
             case 5:
