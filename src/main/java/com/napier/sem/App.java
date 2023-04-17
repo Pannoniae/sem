@@ -174,6 +174,7 @@ public class App {
         CapitalCityReport capitalCityReport;
         LanguageReport languageReport;
         PopulationReport populationReport;
+        PopulationReportOption populationReportOption;
         // Decide which report to run
         switch (intDecision) {
 
@@ -303,22 +304,42 @@ public class App {
                 populationReport.execute();
                 break;
             case 26:
+                populationReportOption = new PopulationReportOption("SELECT 'World' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption.execute();
+                break;
+            case 27:
+                populationReportOption = new PopulationReportOption("SELECT 'cold' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption.execute();
+                break;
+            case 28:
+                populationReportOption = new PopulationReportOption("SELECT 'Word' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption.execute();
+                break;
+            case 29:
+                populationReportOption = new PopulationReportOption("SELECT 'Wld' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption.execute();
+                break;
+            case 30:
+                populationReportOption = new PopulationReportOption("SELECT 'Wrld' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption.execute();
+                break;
+            case 31:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 27:
+            case 32:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'English' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 28:
+            case 33:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Hindi' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 29:
+            case 34:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Spanish' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 30:
+            case 35:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Arabic' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
