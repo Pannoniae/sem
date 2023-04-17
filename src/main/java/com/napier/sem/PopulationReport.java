@@ -12,9 +12,14 @@ import java.nio.file.Paths;
 
 public class PopulationReport implements Report {
     protected final String query;
+    protected String path;
 
-    public PopulationReport(String query) {
+    public PopulationReport(String query, String path) {
         this.query = query;
+        this.path = path;
+    }
+    public static String getAbsPath(){
+        return System.getProperty("user.dir") + "/data/results.md";
     }
 
     @Override
@@ -37,11 +42,9 @@ public class PopulationReport implements Report {
 
                 sb.append("| " + queryResult1 + " | " + queryResult2 + " | " + queryResult3 + " | " + queryResult4 + " |\n");
             }
-            String getCurrDir = System.getProperty("user.dir");
-            String filePath = getCurrDir + "/data/results.md";
-
             String results = sb.toString();
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))){
+
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(path, false))){
                 writer.write(results);
             }
             System.out.println(results);

@@ -19,6 +19,6 @@ services:
     depends_on:
       - db
     volumes:
-      - ./tmp/data/:/data
+      - ./data/:/data
     command:
-      - cp /tmp/data/ /tmp/data/
+      - cp /tmp/data/ /data/

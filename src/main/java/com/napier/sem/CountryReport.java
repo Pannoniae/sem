@@ -10,11 +10,15 @@ import java.io.IOException;
 
 public class CountryReport implements Report {
     protected final String query;
+    protected String path;
 
-    public CountryReport(String query) {
+    public CountryReport(String query, String path) {
         this.query = query;
+        this.path = path;
     }
-
+    public static String getAbsPath(){
+        return System.getProperty("user.dir") + "/data/results.md";
+    }
     @Override
     public void execute() {
         try {
@@ -37,9 +41,10 @@ public class CountryReport implements Report {
 
                 sb.append("| " + queryResult1 + " | " + queryResult2 + " | " + queryResult3 + " | " + queryResult4 + " | " + queryResult5 + " | " + queryResult6 + " |\n");
             }
-            String filePath = "/data/results.md";
+
             String results = sb.toString();
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))){
+
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(path, false))){
                 writer.write(results);
             }
             System.out.println(results);

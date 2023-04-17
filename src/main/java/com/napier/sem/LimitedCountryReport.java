@@ -12,8 +12,11 @@ import java.nio.file.Paths;
 
 public class LimitedCountryReport extends CountryReport {
 
-    public LimitedCountryReport(String query) {
-        super(query);
+    public LimitedCountryReport(String query, String path) {
+        super(query, path);
+    }
+    public static String getAbsPath(){
+        return System.getProperty("user.dir") + "/data/results.md";
     }
 
     @Override
@@ -37,10 +40,9 @@ public class LimitedCountryReport extends CountryReport {
 
                 sb.append("| " + queryResult1 + " | " + queryResult2 + " | " + queryResult3 + " | " + queryResult4 + " | " + queryResult5 + " | " + queryResult6 + " |\n");
             }
-//            String getCurrDir = System.getProperty("user.dir");
-            String filePath = "/data/results.md"; // getCurrDir +
+
             String results = sb.toString();
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))){
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(path, false))){
                 writer.write(results);
             }
             System.out.println(results);
