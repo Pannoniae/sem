@@ -98,7 +98,7 @@ public class IntegrationTests {
     @Test
     void testLimitedCityReport(){
         LimitedCityReport limitedCityReport;
-        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC LIMIT 5;", CityReport.getAbsPath());
+        limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC LIMIT 5;", LimitedCityReport.getAbsPath());
         limitedCityReport.execute();
         System.out.println("Limited City Report ++");
     }
