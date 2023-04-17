@@ -105,11 +105,12 @@ public class App {
         reports.put(28, "The population of a chosen region.");
         reports.put(29, "The population of a chosen country.");
         reports.put(30, "The population of a chosen district.");
-        reports.put(31, "Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.");
-        reports.put(32, "Total number of people and the percentage of the world population speaking English sorted from greatest to smallest.");
-        reports.put(33, "Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.");
-        reports.put(34, "Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.");
-        reports.put(35, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
+        reports.put(31, "The population of a selected city.");
+        reports.put(32, "Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest.");
+        reports.put(33, "Total number of people and the percentage of the world population speaking English sorted from greatest to smallest.");
+        reports.put(34, "Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest.");
+        reports.put(35, "Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest.");
+        reports.put(36, "Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest.");
     }
 
 
@@ -308,38 +309,54 @@ public class App {
                 populationReportOption.execute();
                 break;
             case 27:
-                populationReportOption = new PopulationReportOption("SELECT 'cold' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption = new PopulationReportOption("SELECT Continent AS Name, SUM(Population) AS Population\n" +
+                        "FROM country\n" +
+                        "WHERE Continent = '" + arg1 + "';");
                 populationReportOption.execute();
                 break;
             case 28:
-                populationReportOption = new PopulationReportOption("SELECT 'Word' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption = new PopulationReportOption("SELECT co.Region AS Name, SUM(c.Population) AS Population\n" +
+                        "FROM city c\n" +
+                        "JOIN country co ON c.CountryCode = co.Code\n" +
+                        "WHERE co.Region = '" + arg1 +  "';");
                 populationReportOption.execute();
                 break;
             case 29:
-                populationReportOption = new PopulationReportOption("SELECT 'Wld' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption = new PopulationReportOption("SELECT c.Name AS Name, SUM(ct.Population) AS Population\n" +
+                        "FROM country c\n" +
+                        "JOIN city ct ON c.Code = ct.CountryCode\n" +
+                        "WHERE c.Name = '" + arg1 + "';\n");
                 populationReportOption.execute();
                 break;
             case 30:
-                populationReportOption = new PopulationReportOption("SELECT 'Wrld' AS Name, SUM(Population) AS Population FROM country;");
+                populationReportOption = new PopulationReportOption("SELECT District AS Name, SUM(Population) AS Population\n" +
+                        "FROM city\n " +
+                        "WHERE District = '" + arg1 + "';");
                 populationReportOption.execute();
                 break;
             case 31:
+                populationReportOption = new PopulationReportOption("SELECT Name, Population\n" +
+                        "FROM city\n" +
+                        "WHERE Name = '" + arg1 + "';\n");
+                populationReportOption.execute();
+                break;
+            case 32:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 32:
+            case 33:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'English' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 33:
+            case 34:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Hindi' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 34:
+            case 35:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Spanish' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
-            case 35:
+            case 36:
                 languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Arabic' GROUP BY cl.Language ORDER BY TotalPopulation DESC;");
                 languageReport.execute();
                 break;
