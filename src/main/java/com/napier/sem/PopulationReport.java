@@ -37,7 +37,7 @@ public class PopulationReport implements Report {
             }
             String filePath = "/data/results.md";
             String results = sb.toString();
-            try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))){
                 writer.write(results);
             }
             System.out.println(results);
