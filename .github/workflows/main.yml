@@ -17,7 +17,7 @@ jobs:
       - name: Setup network
         run: |
             docker-compose build
-            docker-compose up
+            docker-compose up -d
       - name: Run Integration tests
         run: mvn test -Dtest=IntegrationTests
       - name: Run Unit tests
