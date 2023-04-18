@@ -88,7 +88,7 @@ class UnitTests {
 
     @Test
     public void testMain() { //testing the main method of the application
-        String[] args = {"0.0.0.0", "0", "--help", ""};
+        String[] args = {"0.0.0.0", "1", "--help", ""};
         App.main(args);
         assertNotNull("Connection should not be null after running main", String.valueOf(app.conn));
     }
