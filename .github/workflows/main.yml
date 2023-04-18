@@ -15,7 +15,7 @@ jobs:
       - name: Compile with Maven
         run: mvn clean package
       - name: Setup network
-        run: docker-compose up -d
+        run: docker-compose up --build
       - name: Run Integration tests
         run: mvn test -Dtest=IntegrationTests
       - name: Run Unit tests
