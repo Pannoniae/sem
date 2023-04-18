@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class IntegrationTests {
 
     @Test
-    public void testConnection() throws SQLException{
+    public void testConnection() throws SQLException{ //testing the ability to connect to the database
         Connection conn = DriverManager.getConnection("jdbc:mysql://0.0.0.0:3306/world", "root", "123");
 
         assertNotNull(conn);
@@ -22,7 +22,7 @@ public class IntegrationTests {
     }
 
     @Test
-    public void testDisconnection() throws SQLException{
+    public void testDisconnection() throws SQLException{ //testing the disconnect method
         App app = new App();
         app.connect("0.0.0.0");
         app.disconnect();
@@ -32,9 +32,9 @@ public class IntegrationTests {
     }
 
     @Test
-    public void getSomeData() throws SQLException{
+    public void getSomeData() throws SQLException{ //testing the ability of app to speak to docker and display information
         Connection conn = DriverManager.getConnection("jdbc:mysql://0.0.0.0:3306/world", "root", "123");
-        PreparedStatement prst = conn.prepareStatement("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT 10;");
+        PreparedStatement prst = conn.prepareStatement("SELECT code, name, continent, region, population, capital FROM world.country ORDER BY population DESC LIMIT 10;");
         ResultSet rs = prst.executeQuery();
 
         while (rs.next()){
@@ -56,7 +56,7 @@ public class IntegrationTests {
     }
 
     @Test
-    void testCapitalCityReport(){
+    void testCapitalCityReport(){ //testing all the report classes methods
         CapitalCityReport capitalCityReport;
         capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;", CapitalCityReport.getAbsPath());
         capitalCityReport.execute();

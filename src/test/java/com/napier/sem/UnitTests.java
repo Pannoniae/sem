@@ -10,40 +10,40 @@ class UnitTests {
 
     static App app;
 
-    @BeforeAll
+    @BeforeAll //Initialisation of the app
     static void init(){
         app = new App();
     }
 
     @Test
-    void createApp(){
+    void createApp(){ //testing the correct creation of the app
         app = new App();
     }
 
     @AfterAll
-    static void tearDown() {
+    static void tearDown() { //using the app disconnect from the database after all the jobs have finished
         app.disconnect();
     }
 
     @Test
-    public void testConnect() {
+    public void testConnect() { //testing the connection to the database
         assertNotNull("Connection should not be null", String.valueOf(app.connect("localhost")));
     }
 
     @Test
-    public void testDisconnect() {
+    public void testDisconnect() { //testing the disconnection of the database
         app.disconnect();
         System.out.println("Successfully disconnected");
     }
 
     @Test
-    public void testReportMap() {
+    public void testReportMap() { //testing if the hashmap has 36/36 reports inside
         assertEquals(36, App.reports.size());
         System.out.println("36/36 Objects are in hasgmap");
     }
 
     @Test
-    public void testReportMapValues() {
+    public void testReportMapValues() { //testing if all the required reports exist in hashmap
         assertTrue(App.reports.containsValue("All the countries in the world organised by largest population to smallest."), "Report map should contain report 1");
         if(App.reports.containsValue("All the countries in the world organised by largest population to smallest.")){
             System.out.println("1 " + App.reports.get(1));
@@ -87,14 +87,14 @@ class UnitTests {
     }
 
     @Test
-    public void testMain() {
-        String[] args = {"0.0.0.0", "1", "", ""};
+    public void testMain() { //testing the main method of the application
+        String[] args = {"0.0.0.0", "0", "--help", ""};
         App.main(args);
         assertNotNull("Connection should not be null after running main", String.valueOf(app.conn));
     }
 
     @Test
-    void testCapitalCityReport(){
+    void testCapitalCityReport(){ //testing the capital city report methods
         CapitalCityReport capitalCityReport;
         capitalCityReport = new CapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.countryCode = country.code AND country.capital = city.ID ORDER BY population DESC;", CapitalCityReport.getAbsPath());
         capitalCityReport.execute();
@@ -102,7 +102,7 @@ class UnitTests {
     }
 
     @Test
-    void testCityReport(){
+    void testCityReport(){//testing the city report methods
         CityReport cityReport;
         cityReport = new CityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC;", CityReport.getAbsPath());
         cityReport.execute();
@@ -110,7 +110,7 @@ class UnitTests {
     }
 
     @Test
-    void testCountryReport(){
+    void testCountryReport(){ //testing the country report methods
         CountryReport countryReport;
         countryReport = new CountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC;", CountryReport.getAbsPath());
         countryReport.execute();
@@ -118,7 +118,7 @@ class UnitTests {
     }
 
     @Test
-    void testLanguageReport(){
+    void testLanguageReport(){ //testing the language report methods
         LanguageReport languageReport;
         languageReport = new LanguageReport("SELECT cl.Language, SUM(c.Population) AS TotalPopulation, (SUM(c.Population) / (SELECT SUM(Population) FROM country)) * 100 AS Percentage FROM countrylanguage cl JOIN country co ON cl.CountryCode = co.Code JOIN city c ON co.Code = c.CountryCode WHERE cl.Language = 'Chinese' GROUP BY cl.Language ORDER BY TotalPopulation DESC;", LanguageReport.getAbsPath());
         languageReport.execute();
@@ -126,7 +126,7 @@ class UnitTests {
     }
 
     @Test
-    void testLimitedCapitalCityReport(){
+    void testLimitedCapitalCityReport(){  //testing the limited capital city report methods
         LimitedCapitalCityReport limitedCapitalCityReport;
         limitedCapitalCityReport = new LimitedCapitalCityReport("SELECT city.name, country.name, city.population FROM city JOIN country ON city.CountryCode = country.code AND country.capital = city.ID ORDER BY population DESC LIMIT 5;", LimitedCapitalCityReport.getAbsPath());
         limitedCapitalCityReport.execute();
@@ -134,7 +134,7 @@ class UnitTests {
     }
 
     @Test
-    void testLimitedCityReport(){
+    void testLimitedCityReport(){ //testing the limited city report methods
         LimitedCityReport limitedCityReport;
         limitedCityReport = new LimitedCityReport("SELECT city.name, country.name, city.district, city.population FROM city JOIN country ON city.countryCode = country.code ORDER BY population DESC LIMIT 5;", LimitedCityReport.getAbsPath());
         limitedCityReport.execute();
@@ -142,7 +142,7 @@ class UnitTests {
     }
 
     @Test
-    void testLimitedCountryReport(){
+    void testLimitedCountryReport(){ //testing the limited country report methods
         LimitedCountryReport limitedCountryReport;
         limitedCountryReport = new LimitedCountryReport("SELECT code, name, continent, region, population, capital FROM country ORDER BY population DESC LIMIT 5;", LimitedCountryReport.getAbsPath());
         limitedCountryReport.execute();
@@ -151,7 +151,7 @@ class UnitTests {
 
 
     @Test
-    void testPopulationReport(){
+    void testPopulationReport(){ //testing the population report methods
         PopulationReport populationReport;
         populationReport = new PopulationReport("SELECT\n" +
                 "  co.Region AS Name,\n" +
@@ -168,7 +168,7 @@ class UnitTests {
         System.out.println("Population Report ++");
     }
     @Test
-    void testPopulationReportOption(){
+    void testPopulationReportOption(){  //testing the population report option methods
         PopulationReportOption populationReportOption;
         populationReportOption = new PopulationReportOption("SELECT Name, Population\n" +
                 "FROM city\n" +
@@ -178,7 +178,7 @@ class UnitTests {
     }
 
     @Test
-    void testGetAbsPath() {
+    void testGetAbsPath() { //testing the method of getting the absolute path to the file
         String absPath = CapitalCityReport.getAbsPath();
         assertNotNull(absPath);
         assertTrue(absPath.endsWith("data/results.md"));
