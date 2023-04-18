@@ -22,10 +22,14 @@ jobs:
         run: mvn test -Dtest=UnitTests
       - name: view logs of db
         run: docker logs db; echo "database is ready for connections"
+      - name: Copy results file to local system
+        run: cp /data/results.md ${{ github.workspace }}/data/results.md
       - name: view logs of app
         run: docker logs app
-      - name: Commit and push changes to master branch
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-            commit_message: 'Update results'
-            branch: master
+      - name: Commit changes
+        run: |
+            git config --global user.email "actions@github.com"
+            git config --global user.name "GitHub Actions"
+            git add data/results.md
+            git commit -m "Update results"
+            git push origin main
