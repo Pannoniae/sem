@@ -18,7 +18,7 @@ public class App {
     /**
      * The static MySQL connection instance.
      */
-    private static Connection conn = null;
+    public static Connection conn = null;
 
     /**
      * Create a database driver connection to a hardcoded set of credentials.
@@ -26,7 +26,7 @@ public class App {
      * @return The newly created connection.
      */
 
-    protected static Connection connect(String location){
+    public static Connection connect(String location){
         try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -70,7 +70,7 @@ public class App {
     /**
      * The list of reports the program produces.
      */
-    private static final HashMap<Integer, String> reports = new HashMap<>() {
+    public static final HashMap<Integer, String> reports = new HashMap<>() {
 
     };
 
@@ -165,8 +165,13 @@ public class App {
 
 
         if (args[2].equals("--help")) {
+            System.out.println("ENTRYPOINT [\"java\", \"-jar\", \"app-jar-with-dependencies.jar\", \"db:3306 - stands for database connection\"," +
+                    " \"1 - stands for the number of the desired report\",\n" +
+                    " \"--help - stands for the optional parameters e.g. - Ukraine for report 10, can be --help to see the help message\"," +
+                    " \"5 - stands for the limit for limited reports\"]\n");
             for (Map.Entry<Integer, String> report : reports.entrySet()) {
-                System.out.println(report.getKey() + ".: " + report.getValue());
+                System.out.println(report.getKey() + " : " + report.getValue());
+
             }
         }
 
