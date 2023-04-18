@@ -24,3 +24,8 @@ jobs:
         run: docker logs db; echo "database is ready for connections"
       - name: view logs of app
         run: docker logs app
+      - name: Commit and push changes to master branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+            commit_message: 'Update results'
+            branch: master
