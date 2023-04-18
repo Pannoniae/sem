@@ -24,8 +24,6 @@ jobs:
         run: mvn test -Dtest=UnitTests
       - name: view logs of db
         run: docker logs db; echo "database is ready for connections"
-      - name: Copy results file to local system
-        run: cp /data/results.md ${{ github.workspace }}/data/results.md
       - name: view logs of app
         run: docker logs app
       - name: Commit changes
