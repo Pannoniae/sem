@@ -15,7 +15,9 @@ jobs:
       - name: Compile with Maven
         run: mvn clean package
       - name: Setup network
-        run: docker-compose up -d
+        run: |
+            docker-compose build
+            docker-compose up -d
       - name: Run Integration tests
         run: mvn test -Dtest=IntegrationTests
       - name: Run Unit tests
@@ -28,6 +30,6 @@ jobs:
         run: |
             git config --global user.email "actions@github.com"
             git config --global user.name "GitHub Actions"
-            git add data/results.md
+            git add ./data/results.md
             git commit -m "Update results"
-            git push origin main
+            git push origin master
