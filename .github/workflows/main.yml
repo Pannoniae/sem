@@ -26,10 +26,10 @@ jobs:
         run: docker logs db; echo "database is ready for connections"
       - name: view logs of app
         run: docker logs app
-      - name: Commit changes
-        run: |
-            git config --global user.email "actions@github.com"
-            git config --global user.name "GitHub Actions"
-            git add data/results.md
-            git commit -m "Update results"
-            git push origin main
+      - name: Upload results to local system
+        run: docker cp app:/data/ ./output
+      - name: Deploy to branch
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: reports
+          folder: output
