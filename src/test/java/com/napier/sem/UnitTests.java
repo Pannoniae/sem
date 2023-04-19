@@ -181,7 +181,7 @@ class UnitTests {
     void testGetAbsPath() { //testing the method of getting the absolute path to the file
         String absPath = CapitalCityReport.getAbsPath();
         assertNotNull(absPath);
-        assertTrue(absPath.endsWith("data/results.md"));
+        assertTrue(absPath.endsWith("data/test-results.md"));
     }
 
 }
