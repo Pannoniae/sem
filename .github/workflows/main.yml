@@ -29,7 +29,7 @@ jobs:
       - name: Upload results to local system
         run: docker cp app:/data/ ./output
       - name: Deploy to branch
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
-        with:
-          branch: reports
-          folder: output
+        run: |
+          git add --all
+          git commit -m "Update results"
+          git push origin results
