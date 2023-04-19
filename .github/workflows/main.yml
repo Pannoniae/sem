@@ -29,9 +29,7 @@ jobs:
       - name: Upload results to local system
         run: docker cp app:/data/ ./output
       - name: Deploy to branch
-        run: |
-          git config --global user.email "kiriltalalayko@gmail.com"
-          git config --global user.name "ervette"
-          git add --all
-          git commit -m "Update results"
-          git push origin reports
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: reports # The branch the action should deploy to.
+          folder: output # The folder we are copying
