@@ -30,6 +30,8 @@ jobs:
         run: docker cp app:/data/ ./output
       - name: Deploy to branch
         run: |
+          git config --global user.email "kiriltalalayko@gmail.com"
+          git config --global user.name "ervette"
           git add --all
           git commit -m "Update results"
           git push origin results
