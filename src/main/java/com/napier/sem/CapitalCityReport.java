@@ -21,7 +21,7 @@ public class CapitalCityReport implements Report {
     }
 
     public static String getAbsPath(){
-        return System.getProperty("user.dir") + "/data/results.md";
+        return System.getProperty("user.dir") + "/data/test-results.md";
     }
     @Override
     public void execute() {

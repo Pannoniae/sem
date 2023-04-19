@@ -34,4 +34,4 @@ jobs:
           git config --global user.name "ervette"
           git add --all
           git commit -m "Update results"
-          git push origin results
+          git push origin reports

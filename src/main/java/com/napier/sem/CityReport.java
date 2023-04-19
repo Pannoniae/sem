@@ -15,7 +15,7 @@ public class CityReport implements Report {
         this.path = path;
     }
     public static String getAbsPath(){
-        return System.getProperty("user.dir") + "/data/results.md";
+        return System.getProperty("user.dir") + "/data/test-results.md";
     }
 
     @Override

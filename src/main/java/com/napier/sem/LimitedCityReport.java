@@ -12,7 +12,7 @@ public class LimitedCityReport extends CityReport {
         super(query, path);
     }
     public static String getAbsPath(){
-        return System.getProperty("user.dir") + "/data/results.md";
+        return System.getProperty("user.dir") + "/data/test-results.md";
     }
 
     @Override
