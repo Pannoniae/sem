@@ -1,3 +1,4 @@
 | Name | Population |
 | --------- | --------- |
-| California | 16716706 |
+| Los Angeles | 158215 |
+| Los Angeles | 3694820 |
