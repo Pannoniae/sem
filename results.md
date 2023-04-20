@@ -1,7 +1,7 @@
 | City Name | Country Name | City District | City Population |
 | --------- | ------------ | ------------- | --------------- |
-| Mumbai (Bombay) | India | Maharashtra | 10500000 |
-| Seoul | South Korea | Seoul | 9981619 |
-| São Paulo | Brazil | São Paulo | 9968485 |
-| Shanghai | China | Shanghai | 9696300 |
-| Jakarta | Indonesia | Jakarta Raya | 9604900 |
+| Sydney | Australia | New South Wales | 3276207 |
+| Melbourne | Australia | Victoria | 2865329 |
+| Brisbane | Australia | Queensland | 1291117 |
+| Perth | Australia | West Australia | 1096829 |
+| Adelaide | Australia | South Australia | 978100 |
