@@ -17,7 +17,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 3 | All the countries in a region organised by largest population to smallest. (Eastern Africa) | ✓ | ![#3](https://user-images.githubusercontent.com/62884069/233370241-6e51428a-0785-49de-be41-abf16bb43e84.png) |
 | 4 | The top N populated countries in the world where N is provided by the user. (Top 5) | ✓ | ![#4](https://user-images.githubusercontent.com/62884069/233371119-0b1bab7f-2a15-4b2e-9aa4-b26fd233c960.png) |
 | 5 | The top N populated countries in a continent where N is provided by the user. (Asia, Top 5) | ✓ | ![#5](https://user-images.githubusercontent.com/62884069/233373616-a03ad2ee-f71e-4736-a644-dfa5c427705d.png) |
-| 6 | The top N populated countries in a region where N is provided by the user. (Eastern Asia, Top 5) | ✓ |  |
+| 6 | The top N populated countries in a region where N is provided by the user. (Eastern Asia, Top 5) | ✓ | ![#6](https://user-images.githubusercontent.com/62884069/233375258-7c80862d-0ddd-4a25-9cc5-70096f289f55.png) |
 | 7 | All the cities in the world organised by largest population to smallest. (Eastern Asia) | ✓ |  |
 | 8 | All the cities in a continent organised by largest population to smallest. (North America) | ✓ |  |
 | 9 | All the cities in a region organised by largest population to smallest. (Caribbean) | ✓ |  |
