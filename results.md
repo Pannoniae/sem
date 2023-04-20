@@ -1,3 +1,3 @@
 | Country Language | Total Population | Percentage |
 | --------- | --------- | ---------- |
-| Chinese | 418010927 | 6.8766 |
+| English | 237134840 | 3.9010 |
