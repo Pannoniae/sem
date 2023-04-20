@@ -48,6 +48,3 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 34 | Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest. | ✓ | ![#34](https://user-images.githubusercontent.com/62884069/233409222-38355dd1-a623-4bbc-b4fd-65dbddc89761.png) |
 | 35 | Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest. | ✓ | ![#35](https://user-images.githubusercontent.com/62884069/233409915-f34539dc-4bd6-40f0-b732-73088ad10662.png) |
 | 36 | Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest. | ✓ | ![#36](https://user-images.githubusercontent.com/62884069/233411071-48b95306-82ad-4445-ab09-a6d5da59a6d1.png) |
- |
-| 34 | Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest. | ✓ |  |
-| 35 | Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest. | ✓ |  |
