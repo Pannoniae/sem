@@ -1,7 +1,7 @@
 | City Name | Country Name | City District | City Population |
 | --------- | ------------ | ------------- | --------------- |
-| Istanbul | Turkey | Istanbul | 8787958 |
-| Baghdad | Iraq | Baghdad | 4336000 |
-| Riyadh | Saudi Arabia | Riyadh | 3324000 |
-| Ankara | Turkey | Ankara | 3038159 |
-| Izmir | Turkey | Izmir | 2130359 |
+| Budapest | Hungary | Budapest | 1811552 |
+| Debrecen | Hungary | Hajdú-Bihar | 203648 |
+| Miskolc | Hungary | Borsod-Abaúj-Zemplén | 172357 |
+| Szeged | Hungary | Csongrád | 158158 |
+| Pécs | Hungary | Baranya | 157332 |
