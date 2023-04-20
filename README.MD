@@ -35,7 +35,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 21 | The top N populated capital cities in a continent where N is provided by the user. (Europe, Top 5) | ✓ | ![#21](https://user-images.githubusercontent.com/62884069/233395619-ffde297c-91b3-4110-8d42-55f293a50799.png) |
 | 22 | The top N populated capital cities in a region where N is provided by the user. (Eastern Europe, Top 5) | ✓ | ![#22](https://user-images.githubusercontent.com/62884069/233396677-09eddd5a-e3b7-4499-bd98-1054efa3d09c.png) |
 | 23 | The population of people, people living in cities, and people not living in cities in each continent. | ✓ | ![#23](https://user-images.githubusercontent.com/62884069/233397736-d6977470-23aa-4ff4-ac0b-11d2c529bda4.png) |
-| 24 | The population of people, people living in cities, and people not living in cities in each region. | ✓ |  |
+| 24 | The population of people, people living in cities, and people not living in cities in each region. | ✓ | ![#24](https://user-images.githubusercontent.com/62884069/233398767-3b4962d4-5c47-414d-8529-cc9d7fa6896a.png) |
 | 25 | The population of people, people living in cities, and people not living in cities in each country. | ✓ |  |
 | 26 | The population of the world. | ✓ |  |
 | 27 | The population of a chosen continent. (North America) | ✓ |  |
