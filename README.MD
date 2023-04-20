@@ -37,7 +37,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 23 | The population of people, people living in cities, and people not living in cities in each continent. | ✓ | ![#23](https://user-images.githubusercontent.com/62884069/233397736-d6977470-23aa-4ff4-ac0b-11d2c529bda4.png) |
 | 24 | The population of people, people living in cities, and people not living in cities in each region. | ✓ | ![#24](https://user-images.githubusercontent.com/62884069/233398767-3b4962d4-5c47-414d-8529-cc9d7fa6896a.png) |
 | 25 | The population of people, people living in cities, and people not living in cities in each country. | ✓ | ![#25](https://user-images.githubusercontent.com/62884069/233399862-23f742c5-9889-43b4-92c5-93ad88b977fc.png) |
-| 26 | The population of the world. | ✓ |  |
+| 26 | The population of the world. | ✓ | ![#26](https://user-images.githubusercontent.com/62884069/233400787-f90b23b0-d9c3-465f-9c3d-ad214313421a.png) |
 | 27 | The population of a chosen continent. (North America) | ✓ |  |
 | 28 | The population of a chosen region. (South America) | ✓ |  |
 | 29 | The population of a chosen country. (Ukraine) | ✓ |  |
