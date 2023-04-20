@@ -13,8 +13,8 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | ID | NAME | MET | SCREENSHOT |
 | -- | ---- | --- | ---------- |
 | 1 | All the countries in the world organised by largest population to smallest. | ✓ | ![Screenshot 2023-04-20 at 12 19 22](https://user-images.githubusercontent.com/62884069/233350970-388a9ed2-c317-4d0d-a53a-c322e15261f2.png) |
-| 2 | All the countries in a continent organised by largest population to smallest. | ✓ | ![#2](https://user-images.githubusercontent.com/62884069/233353702-e32dd3e9-5e3f-4ca4-bac3-2d9c8809cf22.png) |
-| 3 | All the countries in a region organised by largest population to smallest. | ✓ |  |
+| 2 | All the countries in a continent organised by largest population to smallest. (Europe) | ✓ | ![#2](https://user-images.githubusercontent.com/62884069/233353702-e32dd3e9-5e3f-4ca4-bac3-2d9c8809cf22.png) |
+| 3 | All the countries in a region organised by largest population to smallest. (Eastern Africa) | ✓ |  |
 | 4 | The top N populated countries in the world where N is provided by the user. | ✓ |  |
 | 5 | The top N populated countries in a continent where N is provided by the user. | ✓ |  |
 | 6 | The top N populated countries in a region where N is provided by the user. | ✓ |  |
