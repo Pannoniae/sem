@@ -33,7 +33,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 19 | All the capital cities in a region organised by largest to smallest. (Western Europe) | ✓ | ![#19](https://user-images.githubusercontent.com/62884069/233393545-b103db0f-08be-47e6-8cd3-b87245af4fc3.png) |
 | 20 | The top N populated capital cities in the world where N is provided by the user. (Top 5) | ✓ | ![#20](https://user-images.githubusercontent.com/62884069/233394556-6bd27f0f-4128-41e0-924d-343eaf97b7ed.png) |
 | 21 | The top N populated capital cities in a continent where N is provided by the user. (Europe, Top 5) | ✓ | ![#21](https://user-images.githubusercontent.com/62884069/233395619-ffde297c-91b3-4110-8d42-55f293a50799.png) |
-| 22 | The top N populated capital cities in a region where N is provided by the user. (Eastern Europe, Top 5) | ✓ |  |
+| 22 | The top N populated capital cities in a region where N is provided by the user. (Eastern Europe, Top 5) | ✓ | ![#22](https://user-images.githubusercontent.com/62884069/233396677-09eddd5a-e3b7-4499-bd98-1054efa3d09c.png) |
 | 23 | The population of people, people living in cities, and people not living in cities in each continent. | ✓ |  |
 | 24 | The population of people, people living in cities, and people not living in cities in each region. | ✓ |  |
 | 25 | The population of people, people living in cities, and people not living in cities in each country. | ✓ |  |
