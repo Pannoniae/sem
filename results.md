@@ -1,50 +1,9 @@
 | Country Code | Country Name | Country Continent | Country Region | Country Population | Country Capital |
 | --------- | --------- | ---------- | ---------- | ----------- | ----------- |
 | CHN | China | Asia | Eastern Asia | 1277558000 | 1891 |
-| IND | India | Asia | Southern and Central Asia | 1013662000 | 1109 |
-| USA | United States | North America | North America | 278357000 | 3813 |
-| IDN | Indonesia | Asia | Southeast Asia | 212107000 | 939 |
-| BRA | Brazil | South America | South America | 170115000 | 211 |
-| PAK | Pakistan | Asia | Southern and Central Asia | 156483000 | 2831 |
-| RUS | Russian Federation | Europe | Eastern Europe | 146934000 | 3580 |
-| BGD | Bangladesh | Asia | Southern and Central Asia | 129155000 | 150 |
 | JPN | Japan | Asia | Eastern Asia | 126714000 | 1532 |
-| NGA | Nigeria | Africa | Western Africa | 111506000 | 2754 |
-| MEX | Mexico | North America | Central America | 98881000 | 2515 |
-| DEU | Germany | Europe | Western Europe | 82164700 | 3068 |
-| VNM | Vietnam | Asia | Southeast Asia | 79832000 | 3770 |
-| PHL | Philippines | Asia | Southeast Asia | 75967000 | 766 |
-| EGY | Egypt | Africa | Northern Africa | 68470000 | 608 |
-| IRN | Iran | Asia | Southern and Central Asia | 67702000 | 1380 |
-| TUR | Turkey | Asia | Middle East | 66591000 | 3358 |
-| ETH | Ethiopia | Africa | Eastern Africa | 62565000 | 756 |
-| THA | Thailand | Asia | Southeast Asia | 61399000 | 3320 |
-| GBR | United Kingdom | Europe | British Islands | 59623400 | 456 |
-| FRA | France | Europe | Western Europe | 59225700 | 2974 |
-| ITA | Italy | Europe | Southern Europe | 57680000 | 1464 |
-| COD | Congo, The Democratic Republic of the | Africa | Central Africa | 51654000 | 2298 |
-| UKR | Ukraine | Europe | Eastern Europe | 50456000 | 3426 |
 | KOR | South Korea | Asia | Eastern Asia | 46844000 | 2331 |
-| MMR | Myanmar | Asia | Southeast Asia | 45611000 | 2710 |
-| COL | Colombia | South America | South America | 42321000 | 2257 |
-| ZAF | South Africa | Africa | Southern Africa | 40377000 | 716 |
-| ESP | Spain | Europe | Southern Europe | 39441700 | 653 |
-| POL | Poland | Europe | Eastern Europe | 38653600 | 2928 |
-| ARG | Argentina | South America | South America | 37032000 | 69 |
-| TZA | Tanzania | Africa | Eastern Africa | 33517000 | 3306 |
-| DZA | Algeria | Africa | Northern Africa | 31471000 | 35 |
-| CAN | Canada | North America | North America | 31147000 | 1822 |
-| KEN | Kenya | Africa | Eastern Africa | 30080000 | 1881 |
-| SDN | Sudan | Africa | Northern Africa | 29490000 | 3225 |
-| MAR | Morocco | Africa | Northern Africa | 28351000 | 2486 |
-| PER | Peru | South America | South America | 25662000 | 2890 |
-| UZB | Uzbekistan | Asia | Southern and Central Asia | 24318000 | 3503 |
-| VEN | Venezuela | South America | South America | 24170000 | 3539 |
 | PRK | North Korea | Asia | Eastern Asia | 24039000 | 2318 |
-| NPL | Nepal | Asia | Southern and Central Asia | 23930000 | 2729 |
-| IRQ | Iraq | Asia | Middle East | 23115000 | 1365 |
-| AFG | Afghanistan | Asia | Southern and Central Asia | 22720000 | 1 |
-| ROM | Romania | Europe | Eastern Europe | 22455500 | 3018 |
 | TWN | Taiwan | Asia | Eastern Asia | 22256000 | 3263 |
 | MYS | Malaysia | Asia | Southeast Asia | 22244000 | 2464 |
 | UGA | Uganda | Africa | Eastern Africa | 21778000 | 3425 |
