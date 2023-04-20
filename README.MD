@@ -44,7 +44,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 30 | The population of a chosen district. (California) | ✓ |![#30](https://user-images.githubusercontent.com/62884069/233405354-ce3b917b-f518-46bf-9745-81895c4105df.png)  |
 | 31 | The population of a selected city. (Los Angeles) | ✓ | ![#31](https://user-images.githubusercontent.com/62884069/233406610-9ccc295c-2e2a-4e77-b5e0-123ad5869417.png) |
 | 32 | Total number of people and the percentage of the world population speaking Chinese sorted from greatest to smallest. | ✓ | ![#32](https://user-images.githubusercontent.com/62884069/233407583-67016e8b-79ca-45c9-bcb2-08dfad521cd0.png) |
-| 33 | Total number of people and the percentage of the world population speaking English sorted from greatest to smallest. | ✓ |  |
+| 33 | Total number of people and the percentage of the world population speaking English sorted from greatest to smallest. | ✓ | ![#33](https://user-images.githubusercontent.com/62884069/233408378-8a7f3fb0-d2c3-41cc-b6d4-dc14eb4996de.png) |
 | 34 | Total number of people and the percentage of the world population speaking Hindi sorted from greatest to smallest. | ✓ |  |
 | 35 | Total number of people and the percentage of the world population speaking Spanish sorted from greatest to smallest. | ✓ |  |
 | 36 | Total number of people and the percentage of the world population speaking Arabic sorted from greatest to smallest. | ✓ |  |
