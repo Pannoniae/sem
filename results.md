@@ -1,7 +1,7 @@
 | City Name | Country Name | City Population |
 | --------- | --------- | ---------- |
-| Seoul | South Korea | 9981619 |
-| Jakarta | Indonesia | 9604900 |
-| Ciudad de México | Mexico | 8591309 |
 | Moscow | Russian Federation | 8389200 |
-| Tokyo | Japan | 7980230 |
+| London | United Kingdom | 7285000 |
+| Berlin | Germany | 3386667 |
+| Madrid | Spain | 2879052 |
+| Roma | Italy | 2643581 |
