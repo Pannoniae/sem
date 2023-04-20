@@ -1,7 +1,7 @@
 | City Name | Country Name | City District | City Population |
 | --------- | ------------ | ------------- | --------------- |
-| Sydney | Australia | New South Wales | 3276207 |
-| Melbourne | Australia | Victoria | 2865329 |
-| Brisbane | Australia | Queensland | 1291117 |
-| Perth | Australia | West Australia | 1096829 |
-| Adelaide | Australia | South Australia | 978100 |
+| Istanbul | Turkey | Istanbul | 8787958 |
+| Baghdad | Iraq | Baghdad | 4336000 |
+| Riyadh | Saudi Arabia | Riyadh | 3324000 |
+| Ankara | Turkey | Ankara | 3038159 |
+| Izmir | Turkey | Izmir | 2130359 |
