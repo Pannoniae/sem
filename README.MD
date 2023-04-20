@@ -22,7 +22,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 8 | All the cities in a continent organised by largest population to smallest. (North America) | ✓ | ![#8](https://user-images.githubusercontent.com/62884069/233377693-be006998-5f98-43fc-a8e0-dddaa1aa308d.png) |
 | 9 | All the cities in a region organised by largest population to smallest. (Caribbean) | ✓ | ![#9](https://user-images.githubusercontent.com/62884069/233378786-33f91cf7-fe2d-4791-8765-83ba99fef640.png) |
 | 10 | All the cities in a country organised by largest population to smallest. (Italy) | ✓ | ![#10](https://user-images.githubusercontent.com/62884069/233379714-4a716f9c-d589-4724-922f-0d1b7371388c.png) |
-| 11 | All the cities in a district organised by largest population to smallest. (Scotland) | ✓ |  |
+| 11 | All the cities in a district organised by largest population to smallest. (Scotland) | ✓ | ![#11](https://user-images.githubusercontent.com/62884069/233380606-2dedf2f5-787f-4fe6-b0e5-994c479e61f0.png) |
 | 12 | The top N populated cities in the world where N is provided by the user. (Top 5) | ✓ |  |
 | 13 | The top N populated cities in a continent where N is provided by the user. (Oceania, Top 5) | ✓ |  |
 | 14 | The top N populated cities in a region where N is provided by the user. (Middle East, Top 5) | ✓ |  |
