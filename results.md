@@ -1,7 +1,7 @@
 | City Name | Country Name | City Population |
 | --------- | --------- | ---------- |
-| Moscow | Russian Federation | 8389200 |
-| London | United Kingdom | 7285000 |
 | Berlin | Germany | 3386667 |
-| Madrid | Spain | 2879052 |
-| Roma | Italy | 2643581 |
+| Paris | France | 2125246 |
+| Wien | Austria | 1608144 |
+| Amsterdam | Netherlands | 731200 |
+| Bruxelles [Brussel] | Belgium | 133859 |
