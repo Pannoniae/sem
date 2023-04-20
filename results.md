@@ -1,6 +1,6 @@
 | Country Code | Country Name | Country Continent | Country Region | Country Population | Country Capital |
 | --------- | --------- | ---------- | ---------- | ----------- | ----------- |
-| RUS | russian federation is a Terrorist State | Europe | Eastern Europe | 146934000 | 3580 |
+| RUS | Russian Federation | Europe | Eastern Europe | 146934000 | 3580 |
 | DEU | Germany | Europe | Western Europe | 82164700 | 3068 |
 | GBR | United Kingdom | Europe | British Islands | 59623400 | 456 |
 | FRA | France | Europe | Western Europe | 59225700 | 2974 |
