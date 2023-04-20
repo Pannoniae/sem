@@ -18,7 +18,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 4 | The top N populated countries in the world where N is provided by the user. (Top 5) | ✓ | ![#4](https://user-images.githubusercontent.com/62884069/233371119-0b1bab7f-2a15-4b2e-9aa4-b26fd233c960.png) |
 | 5 | The top N populated countries in a continent where N is provided by the user. (Asia, Top 5) | ✓ | ![#5](https://user-images.githubusercontent.com/62884069/233373616-a03ad2ee-f71e-4736-a644-dfa5c427705d.png) |
 | 6 | The top N populated countries in a region where N is provided by the user. (Eastern Asia, Top 5) | ✓ | ![#6](https://user-images.githubusercontent.com/62884069/233375258-7c80862d-0ddd-4a25-9cc5-70096f289f55.png) |
-| 7 | All the cities in the world organised by largest population to smallest. (Eastern Asia) | ✓ |  |
+| 7 | All the cities in the world organised by largest population to smallest. (Eastern Asia) | ✓ | ![#7](https://user-images.githubusercontent.com/62884069/233376163-398d9a8d-5cf0-41f2-ac1e-5622a329031f.png) |
 | 8 | All the cities in a continent organised by largest population to smallest. (North America) | ✓ |  |
 | 9 | All the cities in a region organised by largest population to smallest. (Caribbean) | ✓ |  |
 | 10 | All the cities in a country organised by largest population to smallest. (Italy) | ✓ |  |
