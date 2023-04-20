@@ -1,3 +1,3 @@
 | Country Language | Total Population | Percentage |
 | --------- | --------- | ---------- |
-| Spanish | 280403952 | 4.6129 |
+| Arabic | 167985630 | 2.7635 |
