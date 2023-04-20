@@ -1,3 +1,3 @@
 | Name | Population |
 | --------- | --------- |
-| South America | 345780000 |
+| North America | 91321867 |
