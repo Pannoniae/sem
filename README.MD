@@ -29,7 +29,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 15 | The top N populated cities in a country where N is provided by the user. (Hungary, Top 5) | ✓ | ![#15](https://user-images.githubusercontent.com/62884069/233385750-2dee6c45-17fa-42d9-b606-43e4b9855b1c.png) |
 | 16 | The top N populated cities in a district where N is provided by the user. (Nordrhein-Westfalen, Top 5) | ✓ | ![#16](https://user-images.githubusercontent.com/62884069/233390675-3c7ea944-9ccd-46ff-acda-8e5c1768d3be.png) |
 | 17 | All the capital cities in the world organised by largest population to smallest. | ✓ | ![#17](https://user-images.githubusercontent.com/62884069/233390686-e2c8df9c-4a02-4996-a17c-671543072d30.png) |
-| 18 | All the capital cities in a continent organised by largest population to smallest. (Europe) | ✓ |  |
+| 18 | All the capital cities in a continent organised by largest population to smallest. (Europe) | ✓ | ![#18](https://user-images.githubusercontent.com/62884069/233392266-885886c8-42f6-491d-bc26-02ed0be3b990.png) |
 | 19 | All the capital cities in a region organised by largest to smallest. (Western Europe) | ✓ |  |
 | 20 | The top N populated capital cities in the world where N is provided by the user. (Top 5) | ✓ |  |
 | 21 | The top N populated capital cities in a continent where N is provided by the user. (Europe, Top 5) | ✓ |  |
