@@ -12,7 +12,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 
 | ID | NAME | MET | SCREENSHOT |
 | -- | ---- | --- | ---------- |
-| 1 | All the countries in the world organised by largest population to smallest. | [x] |  |
+| 1 | All the countries in the world organised by largest population to smallest. | [ x ] |  |
 | 2 | All the countries in a continent organised by largest population to smallest. | Yes |  |
 | 3 | All the countries in a region organised by largest population to smallest. | Yes |  |
 | 4 | The top N populated countries in the world where N is provided by the user. | Yes |  |
