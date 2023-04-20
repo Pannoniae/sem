@@ -25,7 +25,7 @@ Develop Build Status ![GitHub Workflow Status (develop)](https://img.shields.io/
 | 11 | All the cities in a district organised by largest population to smallest. (Scotland) | ✓ | ![#11](https://user-images.githubusercontent.com/62884069/233380606-2dedf2f5-787f-4fe6-b0e5-994c479e61f0.png) |
 | 12 | The top N populated cities in the world where N is provided by the user. (Top 5) | ✓ | ![#12](https://user-images.githubusercontent.com/62884069/233382730-aac76979-28e8-43ea-bbef-6e656c5d0767.png) |
 | 13 | The top N populated cities in a continent where N is provided by the user. (Oceania, Top 5) | ✓ | ![#13](https://user-images.githubusercontent.com/62884069/233383918-cd36da1f-7fac-4532-a4bb-7b4f17d37b65.png) |
-| 14 | The top N populated cities in a region where N is provided by the user. (Middle East, Top 5) | ✓ |  |
+| 14 | The top N populated cities in a region where N is provided by the user. (Middle East, Top 5) | ✓ | ![#14](https://user-images.githubusercontent.com/62884069/233384835-b8a23e2e-de14-410d-868c-e69200b45331.png) |
 | 15 | The top N populated cities in a country where N is provided by the user. (Hungary, Top 5) | ✓ |  |
 | 16 | The top N populated cities in a district where N is provided by the user. (Nordrhein-Westfalen, Top 5) | ✓ |  |
 | 17 | All the capital cities in the world organised by largest population to smallest. | ✓ |  |
