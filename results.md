@@ -1,3 +1,3 @@
 | Country Language | Total Population | Percentage |
 | --------- | --------- | ---------- |
-| English | 237134840 | 3.9010 |
+| Hindi | 127100048 | 2.0909 |
