@@ -1,4 +1,3 @@
-| Name | Population |
-| --------- | --------- |
-| Los Angeles | 158215 |
-| Los Angeles | 3694820 |
+| Country Language | Total Population | Percentage |
+| --------- | --------- | ---------- |
+| Chinese | 418010927 | 6.8766 |
